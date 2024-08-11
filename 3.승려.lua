@@ -206,13 +206,8 @@ Debug.ShowHint[[★하토야 코하네
 Go! Fight! win!
 Let's chair up!]]
 Debug.ShowHint[[★클레어
-아아... 엉망진창이 되어버리고 말았어요]]
-Debug.ShowHint[[★클레어
-힌트를 드릴게요!
-꼭 통상 공격 먼저 하실 필요없어요
-통상 공격은 경직 상태에서도 할 수 있답니다!]]
-Debug.ShowHint[[★클레어
-다음 번엔 열심히 해봐요!]]
+아아... 엉망진창이 되어버리고 말았어요
+이건 확실히 고의신거 같네요]]
 else
 Debug.ShowHint[[★클레어
 힌트를 드릴게요!
