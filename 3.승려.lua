@@ -26,7 +26,7 @@ Debug.AddCard(10052222,1,1,LOCATION_MZONE,4,POS_FACEUP)
 Debug.AddCard(10052222,1,1,LOCATION_MZONE,4,POS_FACEUP)
 Debug.AddCard(10052222,1,1,LOCATION_MZONE,4,POS_FACEUP)
 
-Debug.AddCard(10054511,0,0,LOCATION_GRAVE,0,POS_FACEUP)
+Debug.AddCard(10054311,0,0,LOCATION_GRAVE,0,POS_FACEUP)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
@@ -135,7 +135,7 @@ Debug.ShowHint[[★클레어
 서로의 첫 턴에는 드로우하지 않아요]]
 Debug.ShowHint[[★클레어
 그리고 메인 캐릭터의 최대 성채석이
-양플레이어 서로 1개씩 늘어나요!
+양플레이어 서로 1개씩 늘어나서 최대 10까지 늘어나요!
 지금은 제가 성채석을 1개 가져왔으니 그걸로 늘어났다고 칠게요]]
 Debug.ShowHint[[★클레어
 다시 말해서 서로의 첫 턴 이후부터는 사용가능 성채석이
@@ -165,7 +165,7 @@ local e5=Effect.GlobalEffect()
 	e5:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 Debug.ShowHint[[★클레어
 현재 제가 가진 성채석은 3개인데
-이미 필드에 우시쿠 카나 씨가 있어서 2개는 사용중이에요]]
+이미 필드에 카나 씨가 있어서 2개는 사용중이에요]]
 Debug.ShowHint[[★클레어
 이러면 패에 있는 레벨 2인 카오스 씨랑 치야 씨는 소환할 수 없겠어요
 미쿠 씨로 할 수 있는건 코하네 씨 2명밖에 못 이길거예요]]
@@ -188,7 +188,7 @@ Debug.ShowHint[[★클레어
 서포트 크리에메이트라고 통칭해서 부르기도 해요]]
 Debug.ShowHint[[★클레어
 서포트 크리에메이트는 소환했을 때 등장 효과나 돗테오키 효과 중
-하나를 골라서 사용해야만해요 만약 발동할 수 있는 효과가 없었을 때는 아무 효과 처리도 하지 않고 패에 남게 된답니다]]
+하나를 골라서 사용해야만해요 만약 적용할 수 있는 효과가 없었을 때는 아무 효과 처리도 하지 않고 패에 남게 된답니다]]
 Debug.ShowHint[[★클레어
 서포트 크리에메이트는 배틀 존에 소환되는 크리에메이트와는 달리
 다음과 같은 상황에서도 소환할 수 있어요]]

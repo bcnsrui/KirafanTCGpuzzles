@@ -129,7 +129,7 @@ Duel.SkipPhase(tp,PHASE_MAIN1,RESET_PHASE+PHASE_END,0)
 Debug.ShowHint[[★클레어
 자! 이제 게임에서 승리하는 법이에요
 상대 크리에메이트를 계속 성전으로 보내다보면
-상대의 성전 레벨이 10을 넘는 되는 순간이 올거에요!]]
+상대의 성전 레벨이 10을 넘게 되는 순간이 올거에요!]]
 Debug.ShowHint[[★클레어
 상대의 성전 레벨이 10 이상인 상태에서 배틀 페이즈를 종료하면
 진실의 손의 시간이 시작돼요!]]
@@ -200,7 +200,7 @@ local e3=Effect.GlobalEffect()
 	e3:SetCode(EVENT_PHASE+PHASE_BATTLE_START)
 	e3:SetCountLimit(1)
 	e3:SetCondition(function(e,tp,eg,ep,ev,re,r,rp)
-return tamaki:IsLocation(LOCATION_MZONE) end)
+return Duel.GetTurnCount()~=1 and tamaki:IsLocation(LOCATION_MZONE) end)
 	e3:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 local e3=Effect.CreateEffect(c)
 e3:SetType(EFFECT_TYPE_SINGLE)
@@ -289,7 +289,8 @@ Debug.ShowHint[[★타츠미 콘
 Debug.ShowHint[[★혼다 타마키
 아저씨가 부족하당께...]]	
 Debug.ShowHint[[★카타세 마요이
-콘.. 특 이쁨... 꾸엑]]
+마지막으로 이 말은 해야겠습니다
+콘.. 특 이쁨...]]
 Debug.ShowHint[[★클레어
 아앗! 저희의 성전 레벨이 더 높아져 버렸어요!
 이러면 다음 턴을 봐야겠어요
@@ -373,6 +374,8 @@ Debug.ShowHint[[★후다 유미네
 local refill=Duel.GetMatchingGroup(nil,tp,0,LOCATION_HAND,nil)
 Duel.SendtoDeck(refill,nil,SEQ_DECKSHUFFLE,REASON_RULE)
 Debug.ShowHint[[★클레어
+유미네 씨는 승려라서 스탠바이 페이즈에
+상대는 배틀 존에 낼 크리에메이트가 없어요
 대단해요! 저희가 이겼어요!]]
 Debug.ShowHint[[★클레어
 수고하셨습니다 여러분]]
@@ -384,7 +387,7 @@ Debug.ShowHint[[★클레어
 멋진 만남이 있었군요...!
 또 기다리고 있을게요!]]
 Debug.ShowHint[[★클레어
-이제 서버모드에서 다른 플레이어들과의 게임이 시작될거에요!
+이제 서버 대전에서 다른 플레이어들과의 게임이 시작될거에요!
 막히는 일이 생길 때면 언제든지 다시 이곳으로 와주세요!]]
 Debug.ShowHint[[★클레어
 즐거운 시간 되시길 바랄게요!]]

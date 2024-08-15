@@ -60,6 +60,9 @@ tc:RegisterEffect(e2)
 
 
 Debug.ReloadFieldEnd()
+
+Debug.ShowHint[[대사창이 화면을 가릴 경우
+대사창을 드래그해서 옮겨주세요]]
 Debug.ShowHint[[★클레어
 에토와리아에 오신 것을 환영합니다!]]
 Debug.ShowHint[[★클레어

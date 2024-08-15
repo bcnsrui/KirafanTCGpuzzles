@@ -242,7 +242,10 @@ e4:SetCode(EVENT_LEAVE_FIELD)
 e4:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 Debug.ShowHint[[★클레어
 이렇게 체력이 0이 되면 성전으로 보내져요
-상대 배틀 존에 아무것도 없더라도
+지금 카렌 씨를 더블 클릭하면 성전의 카드를 확인할 수 있답니다
+마을이나 돗테오키 존도 똑같이 확인할 수 있어요]]
+Debug.ShowHint[[★클레어
+그리고 상대 배틀 존에 아무것도 없더라도
 통상 공격을 해서 돗테오키 게이지를 올릴 순 있어요]]
 Debug.ShowHint[[★클레어
 이제 배틀 페이즈를 종료해 보도록 할까요?
