@@ -132,12 +132,12 @@ Duel.SkipPhase(tp,PHASE_MAIN1,RESET_PHASE+PHASE_END,0)
 Debug.ShowHint[[★Clea
 Now, we're going to learn how to win the game]]
 Debug.ShowHint[[★Clea
-Keep sending your enemy to Scriptures and you'll have a moment when your opponent's Scriptures Level is 10 or over!]]
+Keep sending your opponent Scriptures their Scriptures Level will eventually reach 10 or above!]]
 Debug.ShowHint[[★Clea
-If you end your Battle Phase with your opponent's Scriptures Level is 10 or over!
+If you end your Battle Phase and your opponent's Scriptures Level is 10 or above,
 Time of the hands of truth begins!]]
 Debug.ShowHint[[★Clea
-Now, start Battle Phase, make your opponent's Scriptures Level 10 or over and then end Battle Phase!]]
+Now, start Battle Phase, make your opponent reach Scriptures Level 10 or above, and then end Battle Phase!]]
 local g=Duel.GetMatchingGroup(Kirafan.NoEmzonefilter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
 local tc3=g:GetFirst()
 	for tc3 in aux.Next(g) do
@@ -180,7 +180,7 @@ Debug.ShowHint[[★Kujou Karen
 Ouch!]]
 Debug.ShowHint[[★Clea
 Now it's Time of the hands of truth!
-If you get this turn over well, you can win!]]
+If play this turn well, you can win!]]
 Duel.SendtoHand(sharo1,nil,REASON_EFFECT)
 Duel.SendtoHand(sharo2,nil,REASON_EFFECT)
 Duel.SendtoHand(hemo,nil,REASON_EFFECT)
@@ -240,8 +240,8 @@ e5:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
 	end end
 Debug.ShowHint[[★Clea
-Oh! We got the effects of Hemo's Unhappy!
-We can't stand it with Yuno-san's recovery]]
+Oh no! We got hit by Hemo's Unhappy!
+We won't be able to heal with Yuno-san's recovery]]
 end)
 hemo:RegisterEffect(e5)
 
@@ -295,7 +295,7 @@ Lastly, I should say this
 Kon.. is pretty...]]
 Debug.ShowHint[[★Clea
 Ahhhh! Our Scriptures Level is higher!
-Then Let's look at the next turn
+Let's look at the next turn
 Please pray for a good creamate!]]
 end)
 sharo2:RegisterEffect(e2)
@@ -337,10 +337,10 @@ Oh! It's Miyako-san and Hiro-san!
 Let me explain the situation now!]]
 Debug.ShowHint[[★Clea
 Right now, our Scriptures Level is 18. Our opponent's is 12
-Even if you knock down two Sharo-san on the opponent side]]
+Even if you knock down the two Sharo-san on the opponent's side]]
 Debug.ShowHint[[★Clea
 if you end the turn with the same Scriptures Level, we will lose!
-So you have to clean up all the opponent's field!]]
+So you have to clear your opponent's field!]]
 if yuno:IsLocation(LOCATION_HAND) then
 Debug.ShowHint[[★Clea
 But if you use everyone's power, you can win!]]
@@ -351,7 +351,7 @@ That's right!
 Anything is possible as long as we have Blonde hair!]]
 Debug.ShowHint[[★Clea
 Okay! Please do it again this time
-Please clean up all the opponent's field!]]
+Please clear your opponent's field!]]
 else
 Debug.ShowHint[[★Clea
 But if you use everyone's power...
@@ -380,7 +380,7 @@ Have a good time~]]
 local refill=Duel.GetMatchingGroup(nil,tp,0,LOCATION_HAND,nil)
 Duel.SendtoDeck(refill,nil,SEQ_DECKSHUFFLE,REASON_RULE)
 Debug.ShowHint[[★Clea
-Yumine-san is a priest, so opponent doesn't have a Creamate to summon in Battle Zone
+Yumine-san is a priest, so your opponent doesn't have a Creamate to summon in Battle Zone
 Amazing! We won!]]
 Debug.ShowHint[[★Clea
 Thank you for your hard work, everyone]]

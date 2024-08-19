@@ -61,8 +61,8 @@ tc:RegisterEffect(e2)
 
 Debug.ReloadFieldEnd()
 
-Debug.ShowHint[[If "Message" obscures the screen
-Drag "Message" and move it]]
+Debug.ShowHint[[If "Message" blocks the screen
+Hold "Message" and drag it]]
 Debug.ShowHint[[★Clea
 Welcome to Etoilia!]]
 Debug.ShowHint[[★Clea
@@ -76,28 +76,28 @@ So, it's finally time to start a fantasy adventure!
 It's gonna be fun! I'm so excited~!]]
 Debug.ShowHint[[★Clea
 So, when you speak of an adventure,
-having comrades with you who always stay by your side and help you are essential, right!?]]
+having companions with you who always stay by your side and help you is essential, right!?]]
 Debug.ShowHint[[★Clea
-But the comrades you are to meet now are more than just people who travel with you]]
+But the companions you are to meet with now are more than just people who travel with you]]
 Debug.ShowHint[[★Clea
 Even when you take a break from your adventures,
-the comrades will stay with you in the "Town"!
+the companions will stay with you in the "Town"!
 I also live there!]]
 Debug.ShowHint[[★Clea
 You can have lively chats with them, or go shopping with them……
 You can even do this or that……]]
 Debug.ShowHint[[★Clea
 Eh?
-You don't know how to meet these comrades?]]
+You don't know how to meet these companions?]]
 Debug.ShowHint[[★Clea
 Well, let me explain! When you participate in a "Summon",
-all those wonderful comrades will come to you!]]
+all those wonderful companions will come to you!]]
 Debug.ShowHint[[★Clea
 I will help you as well by using the power of these keys
 I will give my very best,
 so feel free to come by whenever you want!]]
 Debug.ShowHint[[★Clea
-Well then, so let's try to do such a "Summon" right now!]]
+Well then, so let's try to do a "Summon" right now!]]
 
 local e3=Effect.CreateEffect(c)
 e3:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
