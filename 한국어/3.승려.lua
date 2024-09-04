@@ -79,6 +79,10 @@ e4:SetCode(EVENT_ADJUST)
 e4:SetCondition(Kirafan2.hp0con)
 e4:SetOperation(Kirafan2.hp0op)
 kohane2:RegisterEffect(e4)
+local e9=Effect.CreateEffect(tc)
+e9:SetType(EFFECT_TYPE_SINGLE)
+e9:SetCode(EFFECT_CANNOT_TRIGGER)
+tc:RegisterEffect(e9)
 
 Debug.ReloadFieldEnd()
 
@@ -191,15 +195,8 @@ Debug.ShowHint[[★클레어
 하나를 골라서 사용해야만해요 만약 적용할 수 있는 효과가 없었을 때는 아무 효과 처리도 하지 않고 패에 남게 된답니다]]
 Debug.ShowHint[[★클레어
 서포트 크리에메이트는 배틀 존에 소환되는 크리에메이트와는 달리
-다음과 같은 상황에서도 소환할 수 있어요]]
-Debug.ShowHint[[★클레어
-1. 자신 메인 페이즈
-2. 상대 배틀 페이즈에 상대가 통상 공격했을 때
-3. 상대 배틀 페이즈에 상대가 돗테오키 효과를 발동했을 때]]
-Debug.ShowHint[[★클레어
-상대 배틀 페이즈에 상대의 공격으로 소환할 때는
-1번에 1장씩만 소환할 수 있어요
-그리고 지금처럼 성채석 제한에 걸리는지도 생각해야하죠]]
+상대 배틀 페이즈에도 소환할 수 있어요 상대 턴이래도
+지금처럼 성채석 제한에 걸리는지 생각해야하죠]]
 Debug.ShowHint[[★클레어
 코하네 씨의 체력은 둘다 3 이예요!
 그리고 카나 씨의 돗테오키 효과는

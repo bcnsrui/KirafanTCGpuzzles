@@ -64,6 +64,10 @@ e3:SetCode(EVENT_ADJUST)
 e3:SetCondition(Kirafan2.hp0con)
 e3:SetOperation(Kirafan2.hp0op)
 karen:RegisterEffect(e3)
+local e9=Effect.CreateEffect(tc)
+e9:SetType(EFFECT_TYPE_SINGLE)
+e9:SetCode(EFFECT_CANNOT_TRIGGER)
+tc:RegisterEffect(e9)
 
 Debug.ReloadFieldEnd()
 
@@ -121,8 +125,8 @@ Debug.ShowHint[[★클레어
 츠미키 씨를 소환하셨네요
 통상 공격과 돗테오키 효과를 사용하면 카렌 씨를 이기실 수 있을거예요!]]
 Debug.ShowHint[[★클레어
-츠미키 씨의 카드에 쓰여있는 2/4표시는
-공격력이 2 체력이 4라는 뜻이예요]]
+츠미키 씨의 카드에 쓰여있는 2/5표시는
+공격력이 2 체력이 5라는 뜻이예요]]
 Debug.ShowHint[[★클레어
 소환되면 체력만큼 덱 맨위에서부터 카드를
 츠미키 씨의 아래에 겹쳐서 체력 카드로 사용해요]]
@@ -222,12 +226,11 @@ Debug.ShowHint[[★클레어
 카드 효과에서 [돗테오키 게이지 n]으로 시작하는 효과는
 돗테오키 효과라고 해요]]
 Debug.ShowHint[[★클레어
-돗테오키 존에 가장 먼저 놓인 카드
-즉, 맨 아래부터 n장을 마을로 보내는 것으로
-그 효과를 사용할 수 있어요]]
+돗테오키 존에 가장 먼저 놓인 카드부터 n장을
+마을로 보내는 것으로 그 효과를 사용할 수 있어요]]
 Debug.ShowHint[[★클레어
-배틀 존에 놓이는 전사 마법사 나이트는 돗테오키 효과를
-자신 배틀 페이즈에만 사용할 수 있어요]]
+배틀 존에 있는 전사 마법사 나이트인 동료분들은
+돗테오키 효과를 자신 배틀 페이즈에만 사용할 수 있어요]]
 Debug.ShowHint[[★클레어
 자, 이제 돗테오키 효과를 사용해서 카렌 씨를 이겨볼까요?]]
 Debug.ShowHint[[★쿠죠 카렌

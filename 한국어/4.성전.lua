@@ -22,6 +22,10 @@ e2:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
 e2:SetReset(RESET_EVENT+RESETS_STANDARD)
 e2:SetValue(8)
 tc:RegisterEffect(e2)
+local e9=Effect.CreateEffect(tc)
+e9:SetType(EFFECT_TYPE_SINGLE)
+e9:SetCode(EFFECT_CANNOT_TRIGGER)
+tc:RegisterEffect(e9)
 
 --enemy
 Debug.AddCard(10051631,1,1,LOCATION_MZONE,0,POS_FACEUP_ATTACK)
@@ -85,12 +89,18 @@ Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 
 Debug.AddCard(10054621,0,0,LOCATION_GRAVE,0,POS_FACEUP)
 
 Debug.AddCard(10052421,0,0,LOCATION_MZONE,0,POS_FACEUP_ATTACK)
-Debug.AddCard(10052421,0,0,LOCATION_MZONE,0,POS_FACEUP)
-Debug.AddCard(10052421,0,0,LOCATION_MZONE,0,POS_FACEUP)
 Debug.AddCard(10052421,0,0,LOCATION_MZONE,0,POS_FACEUP)
 Debug.AddCard(10052421,0,0,LOCATION_MZONE,0,POS_FACEUP)
 Debug.AddCard(10052421,0,0,LOCATION_MZONE,0,POS_FACEUP)
@@ -99,12 +109,8 @@ tamaki=Debug.AddCard(10052331,0,0,LOCATION_MZONE,4,POS_FACEUP_ATTACK)
 Debug.AddCard(10052331,0,0,LOCATION_MZONE,4,POS_FACEUP)
 Debug.AddCard(10052331,0,0,LOCATION_MZONE,4,POS_FACEUP)
 Debug.AddCard(10052331,0,0,LOCATION_MZONE,4,POS_FACEUP)
-Debug.AddCard(10052331,0,0,LOCATION_MZONE,4,POS_FACEUP)
-Debug.AddCard(10052331,0,0,LOCATION_MZONE,4,POS_FACEUP)
 
 Debug.AddCard(10052321,0,0,LOCATION_MZONE,2,POS_FACEUP_ATTACK)
-Debug.AddCard(10052321,0,0,LOCATION_MZONE,2,POS_FACEUP)
-Debug.AddCard(10052321,0,0,LOCATION_MZONE,2,POS_FACEUP)
 Debug.AddCard(10052321,0,0,LOCATION_MZONE,2,POS_FACEUP)
 Debug.AddCard(10052321,0,0,LOCATION_MZONE,2,POS_FACEUP)
 Debug.AddCard(10052321,0,0,LOCATION_MZONE,2,POS_FACEUP)
@@ -135,7 +141,7 @@ Debug.ShowHint[[★클레어
 Debug.ShowHint[[★클레어
 자! 이제 배틀 페이즈에 들어갈테니 상대의 성전 레벨을
 10 이상으로 만들고 배틀 페이즈를 종료하세요!]]
-local g=Duel.GetMatchingGroup(Kirafan.NoEmzonefilter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
+local g=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
 local tc3=g:GetFirst()
 	for tc3 in aux.Next(g) do
 local e1=Effect.CreateEffect(tc3)
@@ -147,7 +153,7 @@ e1:SetOperation(Kirafan2.hp0op)
 e1:SetReset(RESET_EVENT+RESETS_STANDARD)
 tc3:RegisterEffect(e1)
 end
-local g2=Duel.GetMatchingGroup(Kirafan.NoEmzonefilter,tp,LOCATION_MZONE,0,nil)
+local g2=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,LOCATION_MZONE,0,nil)
 local tc2=g2:GetFirst()
 	for tc2 in aux.Next(g2) do
 local e2=Effect.CreateEffect(tc2)
@@ -224,7 +230,7 @@ e5:SetRange(LOCATION_MZONE)
 e5:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	Duel.ChangePosition(e:GetHandler(),POS_FACEUP_DEFENSE)
-	local enemy=Duel.GetMatchingGroup(Kirafan.NoEmzonefilter,tp,0,LOCATION_MZONE,nil)
+	local enemy=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,0,LOCATION_MZONE,nil)
 	local dam=1
 	Duel.Damage(1-tp,dam,REASON_EFFECT)
 	local ag=enemy:GetFirst()
@@ -250,8 +256,8 @@ e1:SetRange(LOCATION_MZONE)
 e1:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	Duel.ChangePosition(e:GetHandler(),POS_FACEUP_DEFENSE)
-	local enemy=Duel.GetMatchingGroup(Kirafan.NoEmzonefilter,tp,0,LOCATION_MZONE,nil)
-	local dam=3
+	local enemy=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,0,LOCATION_MZONE,nil)
+	local dam=2
 	Duel.Damage(1-tp,dam,REASON_EFFECT)
 	local ag=enemy:GetFirst()
 	for ag in aux.Next(enemy) do
@@ -271,8 +277,8 @@ e2:SetRange(LOCATION_MZONE)
 e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	Duel.ChangePosition(e:GetHandler(),POS_FACEUP_DEFENSE)
-	local enemy=Duel.GetMatchingGroup(Kirafan.NoEmzonefilter,tp,0,LOCATION_MZONE,nil)
-	local dam=3
+	local enemy=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,0,LOCATION_MZONE,nil)
+	local dam=2
 	Duel.Damage(1-tp,dam,REASON_EFFECT)
 	local ag=enemy:GetFirst()
 	for ag in aux.Next(enemy) do
