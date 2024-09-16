@@ -90,20 +90,6 @@ Debug.ShowHint[[★클레어
 휴~
 열심히 노력해서 성채석을 무려 1개나 더 가져왔어요!
 다음 번에도 더 열심히 할게요!]]
-Debug.ShowHint[[★하토야 코하네
-아! 하나와쨩 안녕!?]]
-Debug.ShowHint[[★우시쿠 카나
-그렇게 부르지 말라고 했잖아!
-카나! 우시쿠 카나!]]
-Debug.ShowHint[[★하토야 코하네
-음? 왜? 귀여운데...
-코텟쨩도 코텟쨩으로 불러도 되는걸..]]
-Debug.ShowHint[[★타테지마 코테츠
-에헤헷~ 그건 아직 무리]]
-Debug.ShowHint[[★우시쿠 카나
-그렇게 불러도되는건 선배뿐이야!!]]
-Debug.ShowHint[[★클레어
-이.. 일단 저희는 카나 씨를 돕도록 해볼까요?]]
 
 local e1=Effect.GlobalEffect()
 e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
@@ -194,27 +180,11 @@ Debug.ShowHint[[★클레어
 Debug.ShowHint[[★클레어
 카나 씨는 이미 최대 체력이라 일반적인 회복으론
 회복을 못 해요...]]
-Debug.ShowHint[[★하토야 코하네
-아니야! 내가 하나와쨩의 공격력을 올려줄게
-Go! Fight! win!
-Let's chair up!]]
-Debug.ShowHint[[★클레어
-아아... 엉망진창이 되어버리고 말았어요
-그래도 더 기회가 있으니 다시 하도록 하죠!
-다음 번엔 열심히 해봐요!]]
 Duel.SetLP(tp,0)
 else
 Debug.ShowHint[[★클레어
 아앗! 혹시 실수하신건가요?
 미쿠 씨를 소환하지 않으셨어요!]]
-Debug.ShowHint[[★하토야 코하네
-아니야! 내가 하나와쨩의 공격력을 올려줄게
-Go! Fight! win!
-Let's chair up!]]
-Debug.ShowHint[[★클레어
-아아... 엉망진창이 되어버리고 말았어요
-그래도 더 기회가 있으니 다시 하도록 하죠!
-다음 번엔 열심히 해봐요!]]
 Duel.SetLP(tp,0)
 end
 end)
@@ -242,16 +212,7 @@ Debug.ShowHint[[★클레어
 마지막으로 이번 턴에 사용한 서포트 크리에메이트는
 엔드 페이즈에 전부 마을로 보내져요]]
 elseif kotetsu:IsLocation(LOCATION_EXTRA) then
-Debug.ShowHint[[★타테지마 코테츠
-어째서?]]
-Debug.ShowHint[[★우시쿠 카나
-아! 미안해]]
-Debug.ShowHint[[★하토야 코하네
-집중력이 부족해진거야?
-Go! Fight! win!
-Let's chair up!]]
 Debug.ShowHint[[★클레어
-아아... 엉망진창이 되어버리고 말았어요
 이건 확실히 고의신거 같네요]]
 else
 Debug.ShowHint[[★클레어

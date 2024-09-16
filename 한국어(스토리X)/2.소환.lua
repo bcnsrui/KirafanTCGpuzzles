@@ -145,19 +145,6 @@ local e2=Effect.GlobalEffect()
 	e2:SetCountLimit(1)
 	e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 if sae:IsLocation(LOCATION_MZONE) or tsumiki:IsLocation(LOCATION_MZONE) then
-Debug.ShowHint[[★쿠죠 카렌
-HAHAHA~~!!
-강한 경쟁자를 찾았습니다]]
-Debug.ShowHint[[★클레어
-아앗 카렌 씨 여기는 에토와리아예요
-지금은 상대 턴이어서 움직이시면 안돼요!]]
-Debug.ShowHint[[★쿠죠 카렌
-What~~!? Oh no~!!
-불합리 입니다!]]
-Debug.ShowHint[[★쿠죠 카렌
-왠지 이전에도 이렇게 가만히 있다가
-에토와리아가 한번 멸망한 꿈을 꿨던 것 같습니다
-그래도 나는 영국인이니깐 신사답게 있겠습니다]]
 Debug.ShowHint[[★클레어
 자, 그럼 이제 배틀 페이즈에 대해 설명해드릴게요
 배틀 페이즈에는 통상 공격과 돗테오키 효과를 사용할 수 있어요]]
@@ -179,13 +166,6 @@ else
 Debug.ShowHint[[★클레어
 아앗! 혹시 실수하신건가요?
 아무것도 소환하지 않으셨어요]]
-Debug.ShowHint[[★쿠죠 카렌
-HAHAHA~~!!
-역시 키라라 판타지아의 주인공인 나를 이길 상대는 없는 것입니다]]
-Debug.ShowHint[[★클레어
-네? 카렌 씨 키라라 판타지아라니 그게 뭔가요
-주인공이라면 혹시 카렌 씨가 쓰신 소설인가요?
-저도 보여주세요!]]
 Duel.SetLP(tp,0)
 end
 end)
@@ -199,13 +179,6 @@ local e3=Effect.GlobalEffect()
 Debug.ShowHint[[★클레어
 통상 공격시 돗테오키 게이지가 1개 늘어나요
 크리에메이트 1턴에 여러번 통상 공격하더라도 첫 1번만 돗테오키 게이지가 늘어나요]]
-Debug.ShowHint[[★쿠죠 카렌
-꿈에선 같은 캐릭터로 여러번 공격해도
-계속 돗테오키 게이지가 오르던 것 같습니다]]
-Debug.ShowHint[[★클레어
-그건 꿈이라서 그런걸거예요
-1턴에 여러번 공격한다고 돗테오키 게이지가 계속 오른다면
-그 게임은 아마 지금쯤 망했을거예요]]
 Debug.ShowHint[[★클레어
 통상 공격이 성공하면 공격한 크리에메이트의 공격력만큼
 상대 크리에메이트의 체력 카드를 데미지만큼 랜덤으로 마을로 보내요]]
@@ -229,9 +202,6 @@ Debug.ShowHint[[★클레어
 마을로 보내는 것으로 그 효과를 사용할 수 있어요]]
 Debug.ShowHint[[★클레어
 자, 이제 돗테오키 효과를 사용해서 카렌 씨를 이겨볼까요?]]
-Debug.ShowHint[[★쿠죠 카렌
-What~!?
-이야기가 다릅니다!]]
 end)
 Duel.RegisterEffect(e3,0)
 

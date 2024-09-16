@@ -180,8 +180,6 @@ local e2=Effect.GlobalEffect()
 	e2:SetCondition(function(e,tp,eg,ep,ev,re,r,rp)
 return Duel.GetTurnCount()==2 end)
 	e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)	
-Debug.ShowHint[[★쿠죠 카렌
-아옷치!]]
 Debug.ShowHint[[★클레어
 자 이제 진실의 손의 시간이 왔어요!
 이번 턴만 잘 넘기면 승리할 수 있어요!]]
@@ -189,12 +187,8 @@ Duel.SendtoHand(sharo1,nil,REASON_EFFECT)
 Duel.SendtoHand(sharo2,nil,REASON_EFFECT)
 Duel.SendtoHand(hemo,nil,REASON_EFFECT)
 Duel.SpecialSummon(hemo,0,1-tp,1-tp,false,false,POS_FACEUP_ATTACK)
-Debug.ShowHint[[★미도리 헤모
-이노 선배♡ 어디 계신가요?]]
 Duel.SpecialSummon(sharo1,0,1-tp,1-tp,false,false,POS_FACEUP_ATTACK)
 Duel.SpecialSummon(sharo2,0,1-tp,1-tp,false,false,POS_FACEUP_ATTACK)
-Debug.ShowHint[[★키리마 샤로
-괴도 라팡 등장!]]
 Debug.ShowHint[[★클레어
 아앗! 이건 좀 어렵겠는데요?]]
 Duel.SkipPhase(1-tp,PHASE_MAIN1,RESET_PHASE+PHASE_END,0)
@@ -290,13 +284,6 @@ e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
 	end end
 	Duel.Destroy(enemy,REASON_EFFECT)
-Debug.ShowHint[[★타츠미 콘
-여우신님? 여우신님!!]]	
-Debug.ShowHint[[★혼다 타마키
-아저씨가 부족하당께...]]	
-Debug.ShowHint[[★카타세 마요이
-마지막으로 이 말은 해야겠습니다
-콘.. 특 이쁨...]]
 Debug.ShowHint[[★클레어
 아앗! 저희의 성전 레벨이 더 높아져 버렸어요!
 이러면 다음 턴을 봐야겠어요
@@ -328,14 +315,6 @@ return Duel.GetTurnCount()==3 end)
 Duel.SkipPhase(tp,PHASE_DRAW,RESET_PHASE+PHASE_END,0)	
 Duel.SendtoHand(miyako,nil,REASON_EFFECT)
 Duel.SendtoHand(hiro,nil,REASON_EFFECT)
-Debug.ShowHint[[★미야코
-어 뭐야!
-싸움이야? 나도 껴줘!]]
-Debug.ShowHint[[★히로
-어떻게 된거야?
-다들 다치진 않았니?]]
-Debug.ShowHint[[★사에
-휴~ 늦지 않아서 다행이야]]
 Debug.ShowHint[[★클레어
 아! 미야코 씨랑 히로 씨에요!
 지금 상황을 설명 드릴게요!]]
@@ -347,24 +326,12 @@ Debug.ShowHint[[★클레어
 따라서 상대 필드를 전부 정리해야만 해요!]]
 if yuno:IsLocation(LOCATION_HAND) then
 Debug.ShowHint[[★클레어
-하지만 모두의 힘을 사용한다면 이길 수 있을거에요!]]
-Debug.ShowHint[[★미야코
-그래? 좋아 해보자고!]]
-Debug.ShowHint[[★오오미야 시노부
-맞아요! 금발만 있다면 뭐든지 가능해요!]]
-Debug.ShowHint[[★클레어
 자! 이번에도 부탁드릴게요
 상대 필드를 전부 정리해주세요!]]
 else
 Debug.ShowHint[[★클레어
-하지만 모두의 힘을 사용한다면...
-아! 유노 씨가 없네요...]]
-Debug.ShowHint[[★미야코
-뭐 어때? 일단 해보자고!]]
-Debug.ShowHint[[★오오미야 시노부
-맞아요! 금발만 있다면 뭐든지 가능해요!]]
-Debug.ShowHint[[★클레어
-좋아요! 그럼 해보죠!]]
+자! 이번에도 부탁드릴게요
+유노 씨가 없지만 상대 필드를 전부 정리해주세요!]]
 end
 end)
 Duel.RegisterEffect(e4,0)
@@ -393,15 +360,6 @@ Debug.ShowHint[[★클레어
 Debug.ShowHint[[★클레어
 유미네 씨는 승려라서 스탠바이 페이즈에
 상대는 배틀 존에 낼 크리에메이트가 없어요]] end
-Debug.ShowHint[[★클레어
-수고하셨습니다 여러분]]
-Debug.ShowHint[[★오오미야 시노부
-금발! 금발!]]
-Debug.ShowHint[[★미야코
-예에~!]]
-Debug.ShowHint[[★클레어
-멋진 만남이 있었군요...!
-또 기다리고 있을게요!]]
 Debug.ShowHint[[★클레어
 이제 서버 대전에서 다른 플레이어들과의 게임이 시작될거에요!
 막히는 일이 생길 때면 언제든지 다시 이곳으로 와주세요!]]
