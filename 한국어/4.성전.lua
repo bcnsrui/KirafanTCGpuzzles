@@ -381,18 +381,10 @@ Debug.ShowHint[[★후다 유미네
 좋은 시간 보내세요~]]
 local refill=Duel.GetMatchingGroup(nil,tp,0,LOCATION_HAND,nil)
 Duel.SendtoDeck(refill,nil,SEQ_DECKSHUFFLE,REASON_RULE)
-if yuno:IsLocation(LOCATION_SZONE) then
 Debug.ShowHint[[★클레어
 유미네 씨는 승려라서 스탠바이 페이즈에
 상대는 배틀 존에 낼 크리에메이트가 없어요
 대단해요! 저희가 이겼어요!]]
-else
-Debug.ShowHint[[★클레어
-정말 대단하시네요....
-유노 씨 없이 이 상황을 해결하시다니요]]
-Debug.ShowHint[[★클레어
-유미네 씨는 승려라서 스탠바이 페이즈에
-상대는 배틀 존에 낼 크리에메이트가 없어요]] end
 Debug.ShowHint[[★클레어
 수고하셨습니다 여러분]]
 Debug.ShowHint[[★오오미야 시노부
