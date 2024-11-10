@@ -46,7 +46,7 @@ Debug.AddCard(10054621,1,1,LOCATION_DECK,0,POS_FACEDOWN)
 
 kana=Debug.AddCard(10051421,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 miku=Debug.AddCard(10054111,0,0,LOCATION_HAND,0,POS_FACEDOWN)
-Debug.AddCard(10054522,0,0,LOCATION_HAND,0,POS_FACEDOWN)
+chie=Debug.AddCard(10054522,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 Debug.AddCard(10054421,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 
 local e1=Effect.CreateEffect(c)
@@ -116,8 +116,8 @@ Debug.ShowHint[[★클레어
 지금은 드로우 페이즈예요!
 드로우 페이즈는 서로의 첫 턴에는 하지 않으니 설명만 드릴게요!]]
 Debug.ShowHint[[★클레어
-드로우 페이즈에 턴 플레이어는 2장을 드로우해요
-그리고 메인 캐릭터의 성채석 한도가
+드로우 페이즈에 턴 플레이어는 3장을 드로우하고 패를 1장
+마을로 보내야해요 그리고 메인 캐릭터의 성채석 한도가
 서로 1개씩 늘어나서 최대 10까지 늘어나요!]]
 Debug.ShowHint[[★클레어
 드로우 페이즈가 지나면 스탠바이 페이즈가 돼요!
@@ -145,7 +145,11 @@ Debug.ShowHint[[★클레어
 이미 필드에 카나 씨가 있어서 2개는 사용중이에요]]
 Debug.ShowHint[[★클레어
 치에 씨랑 치야 씨의 돗테오키 효과에 공격력 증가 효과가 있지만
-저희는 돗테오키 게이지가 2개밖에 없어서 사용할 수 없어요]]
+치에 씨는 돗테오키 게이지가 2개밖에 없어서 사용할 수 없어요]]
+Debug.ShowHint[[★클레어
+치야 씨의 돗테오키 효과에 적힌 추가 경직 1장은
+자신의 배틀 크리에메이트를 1장 경직해야한다는 뜻이예요
+카나 씨는 경직 상태가 되어 돗테오키 효과를 사용할 수 없을거예요]]
 Debug.ShowHint[[★클레어
 일단 할 수 있는걸 하죠!
 먼저 미쿠 씨의 공격력 증가 효과를 카나 씨에게 사용하는거예요
@@ -183,9 +187,23 @@ Debug.ShowHint[[★클레어
 Duel.SetLP(tp,0)
 else
 Debug.ShowHint[[★클레어
-아앗! 혹시 실수하신건가요?
-미쿠 씨를 소환하지 않으셨어요!]]
-Duel.SetLP(tp,0)
+아앗! 혹시 실수하신건가요? 미쿠 씨를 소환하지 않으셨어요!
+그래도 서포트 크리에메이트는
+자신 배틀 페이즈에도 소환할 수 있어요!]]
+Debug.ShowHint[[★클레어
+서포트 크리에메이트는 소환할 때
+등장 효과나 돗테오키 효과에서 하나를 골라서 사용해야만해요]]
+Debug.ShowHint[[★클레어
+서포트 크리에메이트는 상대 배틀 페이즈에도 소환할 수 있어요
+상대 턴이래도 성채석 제한에 걸리는진 생각해야하죠]]
+Debug.ShowHint[[★클레어
+코하네 씨의 체력은 둘다 3 이예요!
+그리고 카나 씨의 돗테오키 효과는
+상대 배틀 존의 크리에메이트 수만큼 데미지를 주는거죠]]
+Debug.ShowHint[[★클레어
+이번엔 일부러 가르쳐 드리지 않을게요
+자 이 상황에서 코하네 씨 2명을 쓰러뜨리고
+배틀 페이즈를 종료해주세요!]]
 end
 end)
 Duel.RegisterEffect(e3,0)
@@ -200,14 +218,17 @@ Debug.ShowHint[[★클레어
 와 정말 놀랐어요!
 이런 식으로 문제를 해결하는 것
 역시 이 게임에서 중요하답니다]]
+if chie:IsLocation(LOCATION_SZONE) and Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_GRAVE,nil)==0 then
+Debug.ShowHint[[★클레어
+치에 씨를 쓰셨을 줄은 몰랐네요
+이런 방법도 있었군요]] end
 Debug.ShowHint[[★클레어
 미쿠 씨의 공격력 증가 효과는 배틀 페이즈 종료시에
 드로우를 1장 보는 보너스 효과가 있어요!
 최소한 손해는 보지 않는 효과라는 소리죠]]
 Debug.ShowHint[[★클레어
 이런 효과는 사용하기만 하면 이득이지만
-성채석 제한은 물론 서포트 존은 2개밖에 없고 자신 엔드 페이즈에
-패가 6장 이상이면 5장이 되도록 마을로 보내는 걸 생각해주세요]]
+성채석 제한은 물론 서포트 존은 2개밖에 없다는 걸 생각해주세요]]
 Debug.ShowHint[[★클레어
 마지막으로 이번 턴에 사용한 서포트 크리에메이트는
 엔드 페이즈에 전부 마을로 보내져요]]
