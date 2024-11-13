@@ -94,6 +94,10 @@ e4:SetCode(EVENT_ADJUST)
 e4:SetCondition(Kirafan2.hp0con)
 e4:SetOperation(Kirafan2.hp0op)
 chino:RegisterEffect(e4)
+local e9=Effect.CreateEffect(tc)
+e9:SetType(EFFECT_TYPE_SINGLE)
+e9:SetCode(EFFECT_CANNOT_TRIGGER)
+tc:RegisterEffect(e9)
 
 Debug.ReloadFieldEnd()
 
