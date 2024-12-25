@@ -22,6 +22,27 @@ e2:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
 e2:SetReset(RESET_EVENT+RESETS_STANDARD)
 e2:SetValue(8)
 tc:RegisterEffect(e2)
+local e3=Effect.CreateEffect(c)
+e3:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+e3:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
+e3:SetRange(LOCATION_MZONE)
+e3:SetCode(EVENT_ADJUST)
+e3:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
+local g=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
+local tc=g:GetFirst()
+	for tc in aux.Next(g) do
+	local e1=Effect.CreateEffect(tc)
+	e1:SetType(EFFECT_TYPE_SINGLE)
+	e1:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
+	e1:SetRange(LOCATION_MZONE)
+	e1:SetCode(EFFECT_SELF_DESTROY)
+	e1:SetCondition(function (e)
+	if e:GetHandler():GetCounter(0xb01)>0 then return e:GetHandler():GetDefense()<=1 end
+	return e:GetHandler():GetDefense()==0 end)
+	tc:RegisterEffect(e1)
+	end
+end)
+c:RegisterEffect(e3)
 local e9=Effect.CreateEffect(tc)
 e9:SetType(EFFECT_TYPE_SINGLE)
 e9:SetCode(EFFECT_CANNOT_TRIGGER)
@@ -142,18 +163,6 @@ Debug.ShowHint[[★클레어
 자! 이제 배틀 페이즈에 들어갈테니 통상 공격만으로
 상대의 성전 레벨을 10 이상으로 만들고
 배틀 페이즈를 종료하세요!]]
-local g=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
-local tc3=g:GetFirst()
-	for tc3 in aux.Next(g) do
-local e1=Effect.CreateEffect(tc3)
-e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e1:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
-e1:SetCode(EVENT_ADJUST)
-e1:SetCondition(Kirafan2.hp0con)
-e1:SetOperation(Kirafan2.hp0op)
-e1:SetReset(RESET_EVENT+RESETS_STANDARD)
-tc3:RegisterEffect(e1)
-end
 local g2=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,LOCATION_MZONE,0,nil)
 local tc2=g2:GetFirst()
 	for tc2 in aux.Next(g2) do
@@ -283,7 +292,6 @@ e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	tc=ag:GetOverlayGroup():RandomSelect(1-tp,dam)
 	Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
 	end end
-	Duel.Destroy(enemy,REASON_EFFECT)
 Debug.ShowHint[[★클레어
 아앗! 저희의 성전 레벨이 더 높아져 버렸어요!
 이러면 다음 턴을 봐야겠어요
