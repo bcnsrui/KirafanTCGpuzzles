@@ -231,6 +231,8 @@ e5:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_TRIGGER_F)
 e5:SetCode(EVENT_PHASE+PHASE_BATTLE_START)
 e5:SetCountLimit(1,1111,EFFECT_COUNT_CODE_DUEL)
 e5:SetRange(LOCATION_MZONE)
+e5:SetCondition(function(e,tp,eg,ep,ev,re,r,rp)
+return Duel.GetTurnCount()==2 end)
 e5:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	Duel.ChangePosition(e:GetHandler(),POS_FACEUP_DEFENSE)
@@ -257,6 +259,8 @@ e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_TRIGGER_F)
 e1:SetCode(EVENT_PHASE+PHASE_BATTLE_START)
 e1:SetCountLimit(1,1112,EFFECT_COUNT_CODE_DUEL)
 e1:SetRange(LOCATION_MZONE)
+e1:SetCondition(function(e,tp,eg,ep,ev,re,r,rp)
+return Duel.GetTurnCount()==2 end)
 e1:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	Duel.ChangePosition(e:GetHandler(),POS_FACEUP_DEFENSE)
@@ -278,6 +282,8 @@ e2:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_TRIGGER_F)
 e2:SetCode(EVENT_PHASE+PHASE_BATTLE_START)
 e2:SetCountLimit(1,1113,EFFECT_COUNT_CODE_DUEL)
 e2:SetRange(LOCATION_MZONE)
+e2:SetCondition(function(e,tp,eg,ep,ev,re,r,rp)
+return Duel.GetTurnCount()==2 end)
 e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	Duel.ChangePosition(e:GetHandler(),POS_FACEUP_DEFENSE)
@@ -291,16 +297,25 @@ e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 	else
 	tc=ag:GetOverlayGroup():RandomSelect(1-tp,dam)
 	Duel.Remove(tc,POS_FACEUP,REASON_EFFECT)
-	end end
-Debug.ShowHint[[★클레어
-아앗! 저희의 성전 레벨이 더 높아져 버렸어요!
-이러면 다음 턴을 봐야겠어요
-제발 좋은 크리에메이트가 나오길 기도하죠!]]	
-end)
+	end end end)
 sharo2:RegisterEffect(e2)
 end)
 Duel.RegisterEffect(e3,0)
 
+local e6=Effect.GlobalEffect()
+e6:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+e6:SetCode(EVENT_PHASE+PHASE_END)
+e6:SetCountLimit(1)
+e6:SetCondition(function(e,tp,eg,ep,ev,re,r,rp)
+return Duel.GetTurnCount()==2 end)
+e6:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
+if Duel.GetMatchingGroupCount(nil,tp,LOCATION_MZONE,0,nil)<2 then
+Debug.ShowHint[[★클레어
+아앗! 저희의 성전 레벨이 더 높아져 버렸어요!
+이러면 다음 턴을 봐야겠어요
+제발 좋은 크리에메이트가 나오길 기도하죠!]]	
+end end)
+Duel.RegisterEffect(e6,0)
 
 local e9=Effect.CreateEffect(tamaki)
 e9:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
