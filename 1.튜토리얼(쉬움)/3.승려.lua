@@ -8,6 +8,18 @@ Debug.SetPlayerInfo(1,8000,0,0)
 c=Debug.AddCard(10050113,0,0,LOCATION_EMZONE,1,POS_FACEUP_ATTACK)
 tc=Debug.AddCard(10050113,1,1,LOCATION_EMZONE,1,POS_FACEUP_ATTACK)
 
+Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
+Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
+
+Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
+Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
+Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
+Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
+Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
+
 kohane1=Debug.AddCard(10052131,1,1,LOCATION_MZONE,0,POS_FACEUP_ATTACK)
 Debug.AddCard(10052222,1,1,LOCATION_MZONE,0,POS_FACEUP)
 Debug.AddCard(10052222,1,1,LOCATION_MZONE,0,POS_FACEUP)
@@ -49,40 +61,26 @@ miku=Debug.AddCard(10054111,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 Debug.AddCard(10054522,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 Debug.AddCard(10054421,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 
-local e1=Effect.CreateEffect(c)
+local e1=Effect.CreateEffect(tc)
 e1:SetType(EFFECT_TYPE_SINGLE)
-e1:SetCode(EFFECT_UPDATE_DEFENSE)
-e1:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
-e1:SetReset(RESET_EVENT+RESETS_STANDARD)
-e1:SetValue(5)
-c:RegisterEffect(e1)
-local e2=Effect.CreateEffect(tc)
-e2:SetType(EFFECT_TYPE_SINGLE)
-e2:SetCode(EFFECT_UPDATE_DEFENSE)
-e2:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
-e2:SetReset(RESET_EVENT+RESETS_STANDARD)
-e2:SetValue(5)
-tc:RegisterEffect(e2)
-local e3=Effect.CreateEffect(kohane1)
-e3:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e3:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
-e3:SetRange(LOCATION_MZONE)
-e3:SetCode(EVENT_ADJUST)
-e3:SetCondition(Kirafan2.hp0con)
-e3:SetOperation(Kirafan2.hp0op)
-kohane1:RegisterEffect(e3)
-local e4=Effect.CreateEffect(kohane2)
-e4:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e4:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
-e4:SetRange(LOCATION_MZONE)
-e4:SetCode(EVENT_ADJUST)
-e4:SetCondition(Kirafan2.hp0con)
-e4:SetOperation(Kirafan2.hp0op)
-kohane2:RegisterEffect(e4)
-local e9=Effect.CreateEffect(tc)
-e9:SetType(EFFECT_TYPE_SINGLE)
-e9:SetCode(EFFECT_CANNOT_TRIGGER)
-tc:RegisterEffect(e9)
+e1:SetCode(EFFECT_CANNOT_TRIGGER)
+tc:RegisterEffect(e1)
+local e1=Effect.CreateEffect(kohane1)
+e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+e1:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
+e1:SetRange(LOCATION_MZONE)
+e1:SetCode(EVENT_ADJUST)
+e1:SetCondition(Kirafan2.hp0con)
+e1:SetOperation(Kirafan2.hp0op)
+kohane1:RegisterEffect(e1)
+local e1=Effect.CreateEffect(kohane2)
+e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+e1:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
+e1:SetRange(LOCATION_MZONE)
+e1:SetCode(EVENT_ADJUST)
+e1:SetCondition(Kirafan2.hp0con)
+e1:SetOperation(Kirafan2.hp0op)
+kohane2:RegisterEffect(e1)
 
 Debug.ReloadFieldEnd()
 
@@ -103,48 +101,25 @@ Debug.ShowHint[[★타테지마 코테츠
 Debug.ShowHint[[★우시쿠 카나
 그렇게 불러도되는건 선배뿐이야!!]]
 Debug.ShowHint[[★클레어
-이.. 일단 저희는 카나 씨를 돕도록 해볼까요?]]
-
-local e1=Effect.GlobalEffect()
-e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e1:SetCode(EVENT_TURN_END)
-e1:SetCountLimit(1)
-e1:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
-if Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==2 then
-Debug.ShowHint[[★클레어
-자, 그럼 다음엔
-게임에서 승리하는 방법에 대해 알아보도록 해요!]]
-Duel.SetLP(1-tp,0)
-else
-Duel.SetLP(0,0)
-end
-end)
-Duel.RegisterEffect(e1,0)
+이.. 일단 저희는 카나 씨를 도와
+코하네 씨를 쓰러트리도록 할까요?]]
 
 local e2=Effect.GlobalEffect()
 	e2:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-	e2:SetCode(EVENT_PHASE+PHASE_DRAW)
+	e2:SetCode(EVENT_PHASE+PHASE_STANDBY)
 	e2:SetCountLimit(1)
 	e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 Debug.ShowHint[[★클레어
-지금은 드로우 페이즈예요!
-드로우 페이즈는 서로의 첫 턴에는 하지 않으니 설명만 드릴게요!]]
-Debug.ShowHint[[★클레어
-드로우 페이즈에 턴 플레이어는 3장을 드로우하고 패를 1장
-마을로 보내야해요 그리고 메인 캐릭터의 성채석 한도가
-서로 1개씩 늘어나서 최대 10까지 늘어나요!]]
-Debug.ShowHint[[★클레어
-드로우 페이즈가 지나면 스탠바이 페이즈가 돼요!
+지난번에 드로우 페이즈를 설명드렸으니
+이번엔 스탠바이 페이즈를 설명할게요!
 스탠바이 페이즈에는 돗테오키 게이지가 1개 늘어나요]]
 Debug.ShowHint[[★클레어
-그리고 패나 배틀 존에서 카드 1장을 돗테오키 존으로 보내
-돗테오키 게이지를 1개 추가로 늘릴 수 있어요
-서로의 첫 턴엔 할 수 없으니 지금은 넘어갈게요]]
+그리고 서로의 첫 턴에는 할 수 없지만
+패나 배틀 존에서 카드 1장을 돗테오키 존으로 보내
+돗테오키 게이지를 1개 추가로 늘릴 수 있어요]]
 Debug.ShowHint[[★클레어
-마지막으로 자신 배틀 존에 크리에메이트가 하나도 없다면
-패에서 배틀 크리에메이트를 하나 소환해야만해요
-만약 소환하지 못하면 자신의 패배가 되니 주의해주세요!]]
-Debug.ShowHint[[★클레어
+체력이 떨어진 크리에메이트를 안전하게
+돗테오키 존으로 보내는 용도로 사용하실 수 있을거예요
 지금은 마침 패에 카나 씨가 있으니 카나 씨를 소환해볼까요?]]
 end)
 Duel.RegisterEffect(e2,0)
@@ -165,9 +140,9 @@ Debug.ShowHint[[★클레어
 자신의 배틀 크리에메이트를 1장 경직해야한다는 뜻이예요
 카나 씨는 경직 상태가 되어 돗테오키 효과를 사용할 수 없을거예요]]
 Debug.ShowHint[[★클레어
-일단 할 수 있는걸 하죠!
-먼저 미쿠 씨의 공격력 증가 효과를 카나 씨에게 사용하는거예요
-목표는 코하네 씨 두분을 쓰러트리는거예요]]
+목표는 코하네 씨 두분을 쓰러트리는건데
+돗테오키 효과를 사용하지 못하면 안 되겠죠?
+그럼 남은 건 미쿠 씨의 공격력 증가 효과겠네요!]]
 end)
 Duel.RegisterEffect(e5,0)
 
@@ -179,10 +154,11 @@ local e3=Effect.GlobalEffect()
 if miku:IsLocation(LOCATION_SZONE) and kana:GetAttack()>2 then
 Debug.ShowHint[[★클레어
 잘하셨어요 서포트 크리에메이트는 소환할 때
-등장 효과나 돗테오키 효과에서 하나를 골라서 사용해야만해요]]
+스킬 효과나 돗테오키 효과에서 하나를 골라서 사용해야만해요]]
 Debug.ShowHint[[★클레어
-서포트 크리에메이트는 상대 배틀 페이즈에도 소환할 수 있어요
-상대 턴이래도 성채석 제한에 걸리는진 생각해야하죠]]
+서포트 크리에메이트는 배틀 페이즈에도 소환할 수 있어요
+다만 자신 배틀 크리에메이트의 통상 공격이나
+돗테오키 효과 사용중에는 소환할 수 없어요]]
 Debug.ShowHint[[★클레어
 코하네 씨의 체력은 둘다 3 이예요!
 그리고 카나 씨의 돗테오키 효과는
@@ -193,11 +169,8 @@ Debug.ShowHint[[★클레어
 배틀 페이즈를 종료해주세요!]]
 elseif miku:IsLocation(LOCATION_SZONE) and kana:GetAttack()==2 then
 Debug.ShowHint[[★클레어
-아앗! 혹시 실수하신건가요? 미쿠 씨를 소환하지 않으셨어요!
-그래도 서포트 크리에메이트는
-자신 배틀 페이즈에도 소환할 수 있어요!]]
-Debug.ShowHint[[★클레어
-카나 씨는 이미 최대 체력이라 일반적인 회복으론
+아앗! 혹시 실수하신건가요? 회복 효과를 사용하셨어요!
+게다가 카나 씨는 이미 최대 체력이라 일반적인 회복으론
 회복을 못 해요...]]
 Debug.ShowHint[[★하토야 코하네
 아니야! 내가 하나와쨩의 공격력을 올려줄게
@@ -211,14 +184,14 @@ Duel.SetLP(tp,0)
 else
 Debug.ShowHint[[★클레어
 아앗! 혹시 실수하신건가요?
-미쿠 씨를 소환하지 않으셨어요!
-그래도 배틀 페이즈에도 소환할 수 있어요!]]
+미쿠 씨를 소환하지 않으셨어요!]]
+Debug.ShowHint[[★클레어
+그래도 서포트 크리에메이트는 배틀 페이즈에도 소환할 수 있어요
+다만 자신 배틀 크리에메이트의 통상 공격이나
+돗테오키 효과 사용중에는 소환할 수 없어요]]
 Debug.ShowHint[[★클레어
 서포트 크리에메이트는 소환할 때
-등장 효과나 돗테오키 효과에서 하나를 골라서 사용해야만해요]]
-Debug.ShowHint[[★클레어
-서포트 크리에메이트는 상대 배틀 페이즈에도 소환할 수 있어요
-상대 턴이래도 성채석 제한에 걸리는진 생각해야하죠]]
+스킬 효과나 돗테오키 효과에서 하나를 골라서 사용해야만해요]]
 Debug.ShowHint[[★클레어
 코하네 씨의 체력은 둘다 3 이예요!
 그리고 카나 씨의 돗테오키 효과는
@@ -247,7 +220,8 @@ Debug.ShowHint[[★클레어
 최소한 손해는 보지 않는 효과라는 소리죠]]
 Debug.ShowHint[[★클레어
 이런 효과는 사용하기만 하면 이득이지만
-성채석 제한은 물론 서포트 존은 2개밖에 없다는 걸 생각해주세요]]
+성채석 제한은 물론 서포트 존은 자신 턴엔 3개
+상대 턴에 2개밖에 없다는 걸 생각해주세요]]
 Debug.ShowHint[[★클레어
 마지막으로 이번 턴에 사용한 서포트 크리에메이트는
 엔드 페이즈에 전부 마을로 보내져요]]
@@ -274,4 +248,18 @@ end
 end)
 Duel.RegisterEffect(e4,0)
 
-
+local e1=Effect.GlobalEffect()
+e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+e1:SetCode(EVENT_TURN_END)
+e1:SetCountLimit(1)
+e1:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
+if Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==2 then
+Debug.ShowHint[[★클레어
+자, 그럼 다음엔
+게임에서 승리하는 방법에 대해 알아보도록 해요!]]
+Duel.SetLP(1-tp,0)
+else
+Duel.SetLP(0,0)
+end
+end)
+Duel.RegisterEffect(e1,0)
