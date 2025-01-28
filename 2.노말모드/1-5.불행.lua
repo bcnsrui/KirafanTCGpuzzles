@@ -58,7 +58,7 @@ Debug.ReloadFieldEnd()
 Debug.ShowHint[[★클레어
 상대 서포트 크리에메이트는 메인 페이즈에는 사용할 수 없어요
 하지만 배틀 페이즈 개시시에는 초과 회복을 시킬거에요
-하지만 불행 효과를 받으면 회복 효과를 받을 수 없답니다!]]
+불행 효과를 받으면 회복 효과를 받을 수 없답니다!]]
 Debug.ShowHint[[이번 턴 안에 상대 배틀 크리에메이트를 전부 쓰러트리세요]]
 
 local e0=Effect.CreateEffect(tc)
