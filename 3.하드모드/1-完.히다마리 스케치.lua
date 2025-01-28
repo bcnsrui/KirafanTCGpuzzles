@@ -83,7 +83,8 @@ Debug.PreAddCounter(miyako,0xb04,1)
 
 Debug.ReloadFieldEnd()
 
-Debug.ShowHint[[키라라 판타지아 코믹스 6화의 내용을 담고 있습니다.]]
+Debug.ShowHint[[키라라 판타지아 코믹스 6화의 내용을 담고 있습니다.
+(구글, 네이버에 검색해 보세요)]]
 Debug.ShowHint[[★램프
 유노 님을 놔주세요 지금 바로!
 이건 잘못 되었어요

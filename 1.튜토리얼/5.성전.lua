@@ -379,7 +379,8 @@ Debug.ShowHint[[★히로
 어떻게 된거야?
 다들 다치진 않았니?]]
 Debug.ShowHint[[★시노부
-어머, 다들 너덜너덜 해졌네요]]
+어머, 다들 너덜너덜 해졌네요
+금발 마물에게 당하신건가요?]]
 Debug.ShowHint[[★클레어
 아! 미야코 씨랑 히로 씨 시노부 씨에요!
 지금 상황을 설명 드릴게요!]]
@@ -389,7 +390,7 @@ Debug.ShowHint[[★클레어
 성전 레벨이 같은채로 턴을 종료하면 저희가 지게 돼요!]]
 Debug.ShowHint[[★클레어
 따라서 상대 필드를 전부 정리해야만 해요!
-하지만 모두의 힘을 사용한다면 이길 수 있을거에요!]]
+하지만 모두의 힘이 모인다면 이길 수 있을거에요!]]
 Debug.ShowHint[[★미야코
 그래? 좋아 해보자고!]]
 Debug.ShowHint[[★오오미야 시노부
@@ -412,7 +413,7 @@ Debug.ShowHint[[★후다 유미네
 local refill=Duel.GetMatchingGroup(nil,tp,0,LOCATION_HAND,nil)
 Duel.SendtoDeck(refill,nil,SEQ_DECKSHUFFLE,REASON_RULE)
 Debug.ShowHint[[★클레어
-유미네 씨는 승려라서 스탠바이 페이즈에
+유미네 씨는 승려고 드로우 효과가 없어서
 상대는 배틀 존에 낼 크리에메이트가 없어요
 대단해요! 저희가 이겼어요!]]
 Debug.ShowHint[[★클레어

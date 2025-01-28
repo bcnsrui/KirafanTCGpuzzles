@@ -58,7 +58,7 @@ Debug.AddCard(10054621,1,1,LOCATION_DECK,0,POS_FACEDOWN)
 
 kana=Debug.AddCard(10051421,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 miku=Debug.AddCard(10054111,0,0,LOCATION_HAND,0,POS_FACEDOWN)
-Debug.AddCard(10054522,0,0,LOCATION_HAND,0,POS_FACEDOWN)
+chie=Debug.AddCard(10054522,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 Debug.AddCard(10054421,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 
 local e1=Effect.CreateEffect(tc)
@@ -209,9 +209,24 @@ local e4=Effect.GlobalEffect()
 	e4:SetCode(EVENT_PHASE+PHASE_BATTLE)
 	e4:SetCountLimit(1)
 	e4:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
-if Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==2 then
+if Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==2 and
+chie:IsLocation(LOCATION_SZONE) and Duel.GetMatchingGroupCount(nil,tp,LOCATION_GRAVE,0,nil)<1 then
 Debug.ShowHint[[★클레어
-와 정말 놀랐어요!
+오... 치에 씨와 함께하는 방법도 있군요
+이 방법은 저도 생각하지 못했어요]]
+Debug.ShowHint[[★클레어
+미쿠 씨의 공격력 증가 효과는 배틀 페이즈 종료시에
+드로우를 1장 보는 보너스 효과가 있어요!
+최소한 손해는 보지 않는 효과라는 소리죠]]
+Debug.ShowHint[[★클레어
+이런 효과는 사용하기만 하면 이득이지만
+성채석 제한은 물론 서포트 존은 자신 턴엔 3개
+상대 턴에 2개밖에 없다는 걸 생각해주세요]]
+Debug.ShowHint[[★클레어
+마지막으로 이번 턴에 사용한 서포트 크리에메이트는
+엔드 페이즈에 전부 마을로 보내져요]]
+elseif Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==2 then
+Debug.ShowHint[[★클레어
 이런 식으로 문제를 해결하는 것
 역시 이 게임에서 중요하답니다]]
 Debug.ShowHint[[★클레어
@@ -255,8 +270,7 @@ e1:SetCountLimit(1)
 e1:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 if Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==2 then
 Debug.ShowHint[[★클레어
-자, 그럼 다음엔
-게임에서 승리하는 방법에 대해 알아보도록 해요!]]
+자, 그럼 다음엔 알케미스트 분들을 만나 보도록 해요!]]
 Duel.SetLP(1-tp,0)
 else
 Duel.SetLP(0,0)
