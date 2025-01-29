@@ -77,8 +77,8 @@ Debug.ReloadFieldEnd()
 
 Debug.ShowHint[[★클레어
 츠미키 씨의 효과는 돗테오키 게이지가 2 이상일 때
-돗테오키 게이지가 2를 소모하여
-상대의 서포트 크리에메이트의 효과를 막는 효과예요]]
+돗테오키 게이지 2를 소모하여
+상대 서포트 크리에메이트의 효과를 막는 효과예요]]
 Debug.ShowHint[[★클레어
 이번 스테이지는 츠미키 씨의 효과로
 돗테오키 게이지 2를 낭비하면 클리어가 불가하니
@@ -183,7 +183,7 @@ Debug.ShowHint[[★클레어
 Duel.SetLP(1-tp,0)
 else
 Debug.ShowHint[[★사토나카 치에
-이렇게 지출해버리면 다음 도시락이...]]
+이렇게 지출해버리면 내일 도시락이...]]
 Duel.SetLP(tp,0) end
 end)
 Duel.RegisterEffect(e4,0)

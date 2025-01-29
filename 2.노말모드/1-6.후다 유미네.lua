@@ -78,11 +78,11 @@ Debug.ShowHint[[★클레어
 Debug.ShowHint[[★클레어
 그 말은 속성이 하나라도 다르면
 배틀 크리에메이트 3장을 내더라도
-오르는 공격력은 1*3=3]]
+오르는 공격력은 1공격력*3장=3]]
 Debug.ShowHint[[★클레어
 속성이 같은 크리에메이트 2장을 내고 유미네 씨의 버프
 효과를 사용한 후에 다른 크리에메이트를 내면
-2*2=4라서 앞선 경우보다 효율이 좋아지죠]]
+2공격력*2장=4라서 앞선 경우보다 효율이 좋아지죠]]
 Debug.ShowHint[[이번 턴 안에 상대 배틀 크리에메이트를 전부 쓰러트리세요]]
 
 local e0=Effect.CreateEffect(tc)
@@ -163,7 +163,7 @@ Duel.SetLP(1-tp,0)
 else
 Debug.ShowHint[[★오오미야 시노부
 금발 소녀가 없네요...
-그래도 청발도 좋네요~]]
+하아 하아... 그래도 청발도 좋네요~]]
 Duel.SetLP(tp,0) end
 end)
 Duel.RegisterEffect(e4,0)

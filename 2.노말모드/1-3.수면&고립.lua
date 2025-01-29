@@ -56,7 +56,8 @@ Debug.AddCard(10055622,1,1,LOCATION_HAND,0,POS_FACEDOWN)
 Debug.ReloadFieldEnd()
 
 Debug.ShowHint[[★클레어
-고립은 공격력의 증감 효과를 받지 않게 된답니다.]]
+고립은 공격력의 증감 효과를 받지 않게 된답니다.
+이미 받은 효과도 무시하게 돼요.]]
 Debug.ShowHint[[이번 턴 안에 상대 배틀 크리에메이트를 전부 쓰러트리세요]]
 
 local e0=Effect.CreateEffect(tc)

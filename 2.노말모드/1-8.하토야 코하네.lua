@@ -86,7 +86,7 @@ Debug.ShowHint[[★클레어
 강력한 효과를 가지고 있지만 추가 경직을 2장 요구하여
 사실상 그 턴 코하네 씨를 제외하고 돗테오키 사용을 막게되죠]]
 Debug.ShowHint[[★클레어
-따라서 코하네 씨를 사용할 때는 경직을 요구하지 않는
+따라서 코하네 씨를 사용할 때는 추가 경직을 요구하지 않는
 공격력 버퍼를 사용해야만 해요]]
 Debug.ShowHint[[이번 턴 안에 상대 배틀 크리에메이트를 전부 쓰러트리세요]]
 
@@ -162,9 +162,9 @@ local e4=Effect.GlobalEffect()
 	e4:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 if Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==1 then
 Debug.ShowHint[[★클레어
-이렇게 통상 공격으로 돗테오키 게이지를 올린 후에
-사용하면 적은 돗테오키 게이지로 엄청난 효과를
-낼 수 있답니다~!]]
+이렇게 코하네 씨는 통상 공격으로 돗테오키 게이지를
+올린 후에 사용하면 적은 돗테오키 게이지로
+엄청난 효과를 낼 수 있답니다~!]]
 Duel.SetLP(1-tp,0)
 else
 Debug.ShowHint[[★카타세 마요이

@@ -182,8 +182,14 @@ local e4=Effect.GlobalEffect()
 	e4:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 if Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==1 then
 Debug.ShowHint[[★클레어
-축하합니다~! 클리어하셨네요
-더 어러운 난이도를 원한다면 하드 모드가 있답니다.
+축하합니다~! 클리어하셨네요]]
+Debug.ShowHint[[★클레어
+덱 편집에서 소환사 카드에 보스 캐릭터를 넣으면
+보스전을 할 수 있답니다.(슈가보스전덱 참조)
+자신이 만든 덱을 테스트 해볼 수 있어요!]]
+Debug.ShowHint[[★클레어
+이 퍼즐보다 더 어러운 난이도를 원한다면
+하드 모드가 있답니다.
 생각보다 어려우니 조심해주세요~!]]
 Duel.SetLP(1-tp,0)
 else
