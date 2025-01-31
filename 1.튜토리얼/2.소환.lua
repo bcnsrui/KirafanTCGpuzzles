@@ -108,9 +108,8 @@ e2:SetRange(LOCATION_EMZONE)
 e2:SetCountLimit(1)
 e2:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
 Debug.ShowHint[[★클레어
-반대로 상대는 덱 앞에 있는 돗테오키 존에서 카드 1장을 소모하여
-덱 맨 위의 카드를 성전에 뒷면으로 놓을 수 있는데
-현재 상대는 돗테오키 존에 카드가 없어 할 수 없네요]]
+반대로 상대도 패를 1장 성전에 뒷면으로 놓을 수 있는데
+현재 상대는 패에 카드가 없어 할 수 없네요]]
 if Duel.GetFieldGroupCount(tp,LOCATION_EXTRA,0)==4 then
 Debug.ShowHint[[★클레어
 흠... 성전에 카드를 두지 않으셨네요
