@@ -102,10 +102,10 @@ Debug.ShowHint[[★오리베 야스나
 애들아~! 나한테 follow me!!]]
 Debug.ShowHint[[이번 턴 안에 상대 배틀 크리에메이트를 전부 쓰러트리세요]]
 
-local e0=Effect.CreateEffect(tc)
-e0:SetType(EFFECT_TYPE_SINGLE)
-e0:SetCode(EFFECT_CANNOT_TRIGGER)
-tc:RegisterEffect(e0)
+local e1=Effect.CreateEffect(tc)
+e1:SetType(EFFECT_TYPE_SINGLE)
+e1:SetCode(EFFECT_CANNOT_TRIGGER)
+tc:RegisterEffect(e1)
 local e1=Effect.CreateEffect(c)
 e1:SetType(EFFECT_TYPE_SINGLE)
 e1:SetCode(EFFECT_UPDATE_DEFENSE)
@@ -121,49 +121,15 @@ e2:SetReset(RESET_EVENT+RESETS_STANDARD)
 e2:SetValue(10)
 tc:RegisterEffect(e2)
 
-local e3=Effect.CreateEffect(c)
-e3:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e3:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
-e3:SetRange(LOCATION_MZONE)
-e3:SetCode(EVENT_ADJUST)
-e3:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
-local g=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
-local tc=g:GetFirst()
-	for tc in aux.Next(g) do
-	local e1=Effect.CreateEffect(tc)
-	e1:SetType(EFFECT_TYPE_SINGLE)
-	e1:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
-	e1:SetRange(LOCATION_MZONE)
-	e1:SetCode(EFFECT_SELF_DESTROY)
-	e1:SetCondition(function (e)
-	if e:GetHandler():GetCounter(0xb01)>0 then return e:GetHandler():GetDefense()<=1 end
-	return e:GetHandler():GetDefense()==0 end)
-	tc:RegisterEffect(e1)
-	end
-end)
-c:RegisterEffect(e3)
-
-local e4=Effect.CreateEffect(c)
-e4:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e4:SetProperty(EFFECT_FLAG_DELAY)
-e4:SetRange(LOCATION_EMZONE)
-e4:SetCountLimit(1)
-e4:SetCode(EVENT_TO_GRAVE)
-e4:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
-local g=Duel.GetMatchingGroup(nil,tp,LOCATION_GRAVE,0,nil)
-Duel.SendtoDeck(g,nil,-2,REASON_RULE)
-end)
-c:RegisterEffect(e4)
-
-local e9=Effect.CreateEffect(c)
-e9:SetCategory(CATEGORY_DECKDES)
-e9:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e9:SetCode(EVENT_PHASE+PHASE_STANDBY)
-e9:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
-e9:SetRange(LOCATION_EMZONE)
-e9:SetCountLimit(1)
-e9:SetCondition(Kirafan.Dottecon)
-e9:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
+local e2=Effect.CreateEffect(c)
+e2:SetCategory(CATEGORY_DECKDES)
+e2:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+e2:SetCode(EVENT_PHASE+PHASE_STANDBY)
+e2:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
+e2:SetRange(LOCATION_EMZONE)
+e2:SetCountLimit(1)
+e2:SetCondition(Kirafan.Dottecon)
+e2:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
 if Duel.SelectYesNo(tp,aux.Stringid(10050111,0)) then
 local g=Duel.SelectMatchingCard(tp,nil,tp,LOCATION_HAND+LOCATION_MZONE,0,0,1,e:GetHandler())
 if #g==0 then
@@ -177,13 +143,25 @@ Duel.SendtoGrave(tc,REASON_RULE)
 else
 Duel.SendtoGrave(tc,REASON_RULE) end end end
 end)
-Duel.RegisterEffect(e9,0)
+c:RegisterEffect(e2)
 
-local e4=Effect.GlobalEffect()
-	e4:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-	e4:SetCode(EVENT_PHASE+PHASE_BATTLE)
-	e4:SetCountLimit(1)
-	e4:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
+local e3=Effect.CreateEffect(c)
+e3:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+e3:SetProperty(EFFECT_FLAG_DELAY)
+e3:SetRange(LOCATION_EMZONE)
+e3:SetCountLimit(1)
+e3:SetCode(EVENT_TO_GRAVE)
+e3:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
+local g=Duel.GetMatchingGroup(nil,tp,LOCATION_GRAVE,0,nil)
+Duel.SendtoDeck(g,nil,-2,REASON_RULE)
+end)
+c:RegisterEffect(e3)
+
+local e1=Effect.GlobalEffect()
+	e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+	e1:SetCode(EVENT_PHASE+PHASE_BATTLE)
+	e1:SetCountLimit(1)
+	e1:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 if Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_MZONE,nil)==1 then
 Debug.ShowHint[[★히나츠키 미캉
 수고했어~! 여기 귤 먹어
@@ -200,5 +178,4 @@ if yasuna:IsLocation(LOCATION_MZONE) then
 Duel.Destroy(yasuna,REASON_EFFECT) end
 Duel.SetLP(tp,0) end
 end)
-Duel.RegisterEffect(e4,0)
-
+Duel.RegisterEffect(e1,0)

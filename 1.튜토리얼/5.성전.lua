@@ -8,32 +8,6 @@ Debug.SetPlayerInfo(1,8000,0,0)
 c=Debug.AddCard(10050113,0,0,LOCATION_EMZONE,1,POS_FACEUP_ATTACK)
 tc=Debug.AddCard(10050113,1,1,LOCATION_EMZONE,1,POS_FACEUP_ATTACK)
 
-local e1=Effect.CreateEffect(c)
-e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e1:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
-e1:SetRange(LOCATION_MZONE)
-e1:SetCode(EVENT_ADJUST)
-e1:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
-local g=Duel.GetMatchingGroup(Kirafan6.NoEmFzonefilter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
-local tc=g:GetFirst()
-	for tc in aux.Next(g) do
-	local e1=Effect.CreateEffect(tc)
-	e1:SetType(EFFECT_TYPE_SINGLE)
-	e1:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
-	e1:SetRange(LOCATION_MZONE)
-	e1:SetCode(EFFECT_SELF_DESTROY)
-	e1:SetCondition(function (e)
-	if e:GetHandler():GetCounter(0xb01)>0 then return e:GetHandler():GetDefense()<=1 end
-	return e:GetHandler():GetDefense()==0 end)
-	tc:RegisterEffect(e1)
-	end
-end)
-c:RegisterEffect(e1)
-local e1=Effect.CreateEffect(tc)
-e1:SetType(EFFECT_TYPE_SINGLE)
-e1:SetCode(EFFECT_CANNOT_TRIGGER)
-tc:RegisterEffect(e1)
-
 --enemy
 Debug.AddCard(10051631,1,1,LOCATION_MZONE,0,POS_FACEUP_ATTACK)
 Debug.AddCard(10051631,1,1,LOCATION_MZONE,0,POS_FACEUP)
@@ -153,6 +127,11 @@ yuno=Debug.AddCard(10054521,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 Debug.AddCard(10051511,0,0,LOCATION_HAND,0,POS_FACEDOWN)
 
 Debug.ReloadFieldEnd()
+
+local e1=Effect.CreateEffect(tc)
+e1:SetType(EFFECT_TYPE_SINGLE)
+e1:SetCode(EFFECT_CANNOT_TRIGGER)
+tc:RegisterEffect(e1)
 
 local e1=Effect.GlobalEffect()
 	e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
@@ -378,7 +357,7 @@ Debug.ShowHint[[★미야코
 Debug.ShowHint[[★히로
 어떻게 된거야?
 다들 다치진 않았니?]]
-Debug.ShowHint[[★시노부
+Debug.ShowHint[[★오오미야 시노부
 어머, 다들 너덜너덜 해졌네요
 금발 마물에게 당하신건가요?]]
 Debug.ShowHint[[★클레어

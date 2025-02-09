@@ -47,7 +47,7 @@ Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10052631,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 sae=Debug.AddCard(10051511,0,0,LOCATION_DECK,0,POS_FACEDOWN)
-tsumiki=Debug.AddCard(10051321,0,0,LOCATION_DECK,0,POS_FACEDOWN)
+honoka=Debug.AddCard(10051622,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 
 Debug.AddCard(10054621,1,1,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,1,1,LOCATION_DECK,0,POS_FACEDOWN)
@@ -60,14 +60,6 @@ local e1=Effect.CreateEffect(tc)
 e1:SetType(EFFECT_TYPE_SINGLE)
 e1:SetCode(EFFECT_CANNOT_TRIGGER)
 tc:RegisterEffect(e1)
-local e1=Effect.CreateEffect(karen)
-e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
-e1:SetProperty(EFFECT_FLAG_IGNORE_IMMUNE+EFFECT_FLAG_CANNOT_DISABLE)
-e1:SetRange(LOCATION_MZONE)
-e1:SetCode(EVENT_ADJUST)
-e1:SetCondition(Kirafan2.hp0con)
-e1:SetOperation(Kirafan2.hp0op)
-karen:RegisterEffect(e1)
 
 Debug.ReloadFieldEnd()
 
@@ -166,15 +158,15 @@ Debug.ShowHint[[★클레어
 제 옆에 있는 BP 버튼을 눌러주세요]]
 else
 Debug.ShowHint[[★클레어
-츠미키 씨를 소환하셨네요
+호노카 씨를 소환하셨네요
 통상 공격과 돗테오키 효과를 사용하면
 카렌 씨를 이기실 수 있을거예요!]]
 Debug.ShowHint[[★클레어
-츠미키 씨의 카드에 쓰여있는 2/5표시는
+호노카 씨의 카드에 쓰여있는 2/5표시는
 공격력이 2 체력이 5라는 뜻이예요]]
 Debug.ShowHint[[★클레어
 소환되면 최대 체력만큼 덱에서 카드를
-츠미키 씨의 아래에 겹쳐서 체력 카드로 사용해요]]
+호노카 씨의 아래에 겹쳐서 체력 카드로 사용해요]]
 Debug.ShowHint[[★클레어
 이제 배틀 페이즈로 들어가도록 하죠
 제 옆에 있는 BP 버튼을 눌러주세요]]
@@ -187,9 +179,13 @@ local e2=Effect.GlobalEffect()
 	e2:SetCode(EVENT_PHASE+PHASE_BATTLE_START)
 	e2:SetCountLimit(1)
 	e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
+if honoka:IsLocation(LOCATION_MZONE) then
 Debug.ShowHint[[★쿠죠 카렌
-HAHAHA~~!!
-강한 경쟁자를 찾았습니다]]
+HAHAHA~~!! 강한 경쟁자를 찾았습니다
+앗, 호노카입니다! Exercise하러 온 겁니까?]]
+Debug.ShowHint[[★마츠바라 호노카
+응응~ 카렌쨩이 운동하는 모습을 보며 금발에 반짝이는 땀...
+이 아니라 여긴 테니스 장비가 없어서 다른 운동이라도...]]
 Debug.ShowHint[[★클레어
 자, 그럼 이제 배틀 페이즈에 대해 설명해드릴게요
 배틀 페이즈에는 통상 공격과 돗테오키 효과를 사용할 수 있어요]]
@@ -202,6 +198,20 @@ Debug.ShowHint[[★클레어
 Debug.ShowHint[[★클레어
 자 이제 공격해보도록 하죠!
 통상 공격부터 해볼까요?]]
+else
+Debug.ShowHint[[★클레어
+자, 그럼 이제 배틀 페이즈에 대해 설명해드릴게요
+배틀 페이즈에는 통상 공격과 돗테오키 효과를 사용할 수 있어요]]
+Debug.ShowHint[[★클레어
+배틀 크리에메이트는 돗테오키 효과를 사용하면
+카드를 가로로 놓아 경직 상태를 표시해요]]
+Debug.ShowHint[[★클레어
+경직 상태가 되면 더이상 돗테오키 효과를 사용할 수 없고
+경직 상태를 해제하면 다시 돗테오키 효과를 사용할 수 있어요]]
+Debug.ShowHint[[★클레어
+자 이제 공격해보도록 하죠!
+통상 공격부터 해볼까요?]]
+end
 local e1=Effect.CreateEffect(sae)
 e1:SetType(EFFECT_TYPE_SINGLE)
 e1:SetCode(EFFECT_CANNOT_TRIGGER)
@@ -252,6 +262,9 @@ local e4=Effect.CreateEffect(karen)
 e4:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
 e4:SetCode(EVENT_LEAVE_FIELD)
 e4:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
+if honoka:IsLocation(LOCATION_MZONE) then
+Debug.ShowHint[[★마츠바라 호노카
+카렌쨩~! 잘 봤지 테니스 부였던 내 실력을~!]]
 Debug.ShowHint[[★클레어
 이렇게 체력이 0이 되면 성전으로 보내져요
 크리에메이트가 성전으로 보내지면 성전의 뒷면 카드 중 1장을
@@ -265,6 +278,21 @@ Debug.ShowHint[[★클레어
 Debug.ShowHint[[★클레어
 이제 배틀 페이즈를 종료해 보도록 할까요?
 제 오른쪽에 있는 EP 버튼을 눌러주세요]]
+else
+Debug.ShowHint[[★클레어
+이렇게 체력이 0이 되면 성전으로 보내져요
+크리에메이트가 성전으로 보내지면 성전의 뒷면 카드 중 1장을
+돗테오키 존으로 보내서 성전에 있는 카드 수를 유지하게 된답니다.]]
+Debug.ShowHint[[★클레어
+지금 카렌 씨를 더블 클릭하면 성전의 카드를 확인할 수 있답니다
+마을이나 돗테오키 존도 똑같이 확인할 수 있어요]]
+Debug.ShowHint[[★클레어
+그리고 상대 배틀 존에 아무것도 없더라도
+통상 공격을 해서 돗테오키 게이지를 올릴 순 있어요]]
+Debug.ShowHint[[★클레어
+이제 배틀 페이즈를 종료해 보도록 할까요?
+제 오른쪽에 있는 EP 버튼을 눌러주세요]]
+end
 end)
 karen:RegisterEffect(e4)
 
