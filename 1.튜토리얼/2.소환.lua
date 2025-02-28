@@ -212,6 +212,11 @@ Debug.ShowHint[[★클레어
 자 이제 공격해보도록 하죠!
 통상 공격부터 해볼까요?]]
 end
+local e1=Effect.CreateEffect(honoka)
+e1:SetType(EFFECT_TYPE_SINGLE)
+e1:SetCode(EFFECT_CANNOT_TRIGGER)
+e1:SetReset(RESET_EVENT+RESETS_STANDARD+RESET_PHASE+PHASE_DAMAGE)
+honoka:RegisterEffect(e1)
 local e1=Effect.CreateEffect(sae)
 e1:SetType(EFFECT_TYPE_SINGLE)
 e1:SetCode(EFFECT_CANNOT_TRIGGER)
@@ -315,3 +320,16 @@ Duel.SetLP(1-tp,0)
 end
 end)
 Duel.RegisterEffect(e4,0)
+
+
+local e2=Effect.GlobalEffect()
+e2:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
+e2:SetCode(EVENT_TURN_END)
+e2:SetCountLimit(1)
+e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
+Debug.ShowHint[[★클레어
+아! 혹시 실수로 엔드 페이즈를 누르셨나요?
+그러면 다시 해보도록해요!]]
+Duel.SetLP(0,0)
+end)
+Duel.RegisterEffect(e2,0)
