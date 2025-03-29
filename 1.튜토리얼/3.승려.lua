@@ -39,6 +39,8 @@ Debug.AddCard(10052222,1,1,LOCATION_MZONE,4,POS_FACEUP)
 Debug.AddCard(10052222,1,1,LOCATION_MZONE,4,POS_FACEUP)
 
 Debug.AddCard(10054311,0,0,LOCATION_GRAVE,0,POS_FACEUP)
+Debug.AddCard(10054311,0,0,LOCATION_GRAVE,0,POS_FACEUP)
+
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
 Debug.AddCard(10054621,0,0,LOCATION_DECK,0,POS_FACEDOWN)
@@ -95,10 +97,9 @@ local e2=Effect.GlobalEffect()
 	e2:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
 Debug.ShowHint[[★클레어
 지난번에 드로우 페이즈를 설명드렸으니
-이번엔 스탠바이 페이즈를 설명할게요!
-스탠바이 페이즈에는 돗테오키 게이지가 1개 늘어나요]]
+이번엔 스탠바이 페이즈를 설명할게요!]]
 Debug.ShowHint[[★클레어
-그리고 서로의 첫 턴에는 할 수 없지만
+스탠바이 페이즈 역시 서로의 첫 턴에는 할 수 없지만
 패나 배틀 존에서 카드 1장을 돗테오키 존으로 보내
 돗테오키 게이지를 1개 추가로 늘릴 수 있어요]]
 Debug.ShowHint[[★클레어
