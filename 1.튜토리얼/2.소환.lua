@@ -5,24 +5,22 @@ Debug.SetPlayerInfo(0,8000,0,0)
 Debug.SetPlayerInfo(1,8000,0,0)
 
 --클레어
-c=Debug.AddCard(10050113,0,0,LOCATION_EMZONE,1,POS_FACEUP_ATTACK)
-tc=Debug.AddCard(10050113,1,1,LOCATION_EMZONE,1,POS_FACEUP_ATTACK)
+c=Debug.AddCard(10050113,0,0,LOCATION_MZONE,6,POS_FACEUP_ATTACK)
+Debug.AddCard(10054621,0,0,LOCATION_MZONE,6,POS_FACEUP)
+Debug.AddCard(10054621,0,0,LOCATION_MZONE,6,POS_FACEUP)
+Debug.AddCard(10054621,0,0,LOCATION_MZONE,6,POS_FACEUP)
+Debug.AddCard(10054621,0,0,LOCATION_MZONE,6,POS_FACEUP)
+tc=Debug.AddCard(10050113,1,1,LOCATION_MZONE,6,POS_FACEUP_ATTACK)
+Debug.AddCard(10054621,1,1,LOCATION_MZONE,6,POS_FACEUP)
+Debug.AddCard(10054621,1,1,LOCATION_MZONE,6,POS_FACEUP)
+Debug.AddCard(10054621,1,1,LOCATION_MZONE,6,POS_FACEUP)
+Debug.AddCard(10054621,1,1,LOCATION_MZONE,6,POS_FACEUP)
 
 karen=Debug.AddCard(10051631,1,1,LOCATION_MZONE,2,POS_FACEUP_ATTACK)
 Debug.AddCard(10051631,1,1,LOCATION_MZONE,2,POS_FACEUP)
 Debug.AddCard(10051411,1,1,LOCATION_MZONE,2,POS_FACEUP)
 Debug.AddCard(10051622,1,1,LOCATION_MZONE,2,POS_FACEUP)
 Debug.AddCard(10051521,1,1,LOCATION_MZONE,2,POS_FACEUP)
-
-Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
-Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
-Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
-Debug.AddCard(10054621,0,0,LOCATION_EXTRA,0,POS_FACEDOWN)
-
-Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
-Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
-Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
-Debug.AddCard(10054621,1,1,LOCATION_EXTRA,0,POS_FACEDOWN)
 
 Debug.AddCard(10054211,0,0,LOCATION_SZONE,0,POS_FACEUP)
 Debug.AddCard(10054611,0,0,LOCATION_SZONE,2,POS_FACEUP)
@@ -69,14 +67,13 @@ Debug.ShowHint[[★클레어
 제 밑에 있는 노란색 3/4 표시가 보이시나요?
 오른쪽 숫자가 제가 현재 사용할 수 있는 성채석 갯수에요]]
 Debug.ShowHint[[★클레어
-성채석 갯수는 성전에 있는 카드 수와 같아요
-성전은 필드의 왼쪽 아래에 있고 지금은 뒷면으로 놓인 카드 4장만
-있네요. 더블 클릭하면 카드들을 확인할 수 있어요!]]
+성채석 갯수는 제 아래에 깔린 카드와 성전에 있는 카드 합과 같아요
+제 아래에 깔린 카드 4장은 저를 더블 클릭하면 확인할 수 있어요!]]
 Debug.ShowHint[[★클레어
-원래 드로우 페이즈는 서로의 1턴에는 할 수 없지만 튜토리얼이니 진행해 볼게요! 드로우 페이즈에는 3장을 드로우하고 패에서 카드 1장을 성전에 뒷면으로 둘 수 있어요]]
+원래 드로우 페이즈는 서로의 1턴에는 할 수 없지만 튜토리얼이니 진행해 볼게요! 드로우 페이즈에는 3장을 드로우하고 패에서 카드 1장을 제 아래에 겹칠 수 있어요]]
 Debug.ShowHint[[★클레어
-성전의 카드가 12장이 되면 더이상 뒷면으로 둘 수 없어요
-마우스 오른쪽 클릭을 누르면 성전에 카드를 두지 않을 수 있답니다!]]
+성채석이 12이상이 되면 더이상 성채석을 늘릴 수 없어요
+마우스 오른쪽 클릭을 누르면 성채석을 늘리지 않을 수 있답니다!]]
 
 local e1=Effect.CreateEffect(c)
 e1:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
@@ -89,7 +86,7 @@ e1:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
 	Duel.Hint(HINT_SELECTMSG,tp,aux.Stringid(10050112,5))
 	local g=Duel.SelectMatchingCard(tp,nil,tp,LOCATION_HAND,0,0,1,nil)
 	if #g>0 then
-	Duel.Sendto(g,LOCATION_EXTRA,REASON_RULE,POS_FACEDOWN) end
+	Duel.Overlay(c,g) end
 end)
 c:RegisterEffect(e1)
 
@@ -101,11 +98,11 @@ e2:SetRange(LOCATION_EMZONE)
 e2:SetCountLimit(1)
 e2:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
 Debug.ShowHint[[★클레어
-반대로 상대도 패를 1장 성전에 뒷면으로 놓을 수 있는데
+반대로 상대도 패를 1장 메인 캐릭터 아래에 겹칠 수 있는데
 현재 상대는 패에 카드가 없어 할 수 없네요]]
-if Duel.GetFieldGroupCount(tp,LOCATION_EXTRA,0)==4 then
+if c:GetOverlayGroup():GetCount()==4 then
 Debug.ShowHint[[★클레어
-흠... 성전에 카드를 두지 않으셨네요
+흠... 카드를 놓지 않으셨네요
 자신 필드의 크리에메이트의 레벨 합계는
 성채석 갯수를 넘을 수 없답니다.]]
 Debug.ShowHint[[★클레어

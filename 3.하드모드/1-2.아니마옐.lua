@@ -120,7 +120,7 @@ e2:SetCode(EVENT_PHASE+PHASE_STANDBY)
 e2:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
 e2:SetRange(LOCATION_EMZONE)
 e2:SetCountLimit(1)
-e2:SetCondition(Kirafan.Dottecon)
+e2:SetCondition(function(_,tp) return Duel.GetTurnPlayer()==tp end)
 e2:SetOperation(function (e,tp,eg,ep,ev,re,r,rp)
 if Duel.SelectYesNo(tp,aux.Stringid(10050111,0)) then
 local g=Duel.SelectMatchingCard(tp,nil,tp,LOCATION_HAND+LOCATION_MZONE,0,0,1,e:GetHandler())
