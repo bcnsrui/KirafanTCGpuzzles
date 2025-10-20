@@ -123,9 +123,9 @@ e1:SetRange(LOCATION_HAND)
 e1:SetCondition(function (e,tp,eg,ep,ev,re,r,rp)
 return Duel.GetFieldGroupCount(e:GetHandlerPlayer(),0,LOCATION_GRAVE)>1
 end)
-e2:SetCost(c10055112.cost)
-e2:SetTarget(Kirafan6.spdamtg)
-e2:SetOperation(c10055112.op)
+e1:SetCost(Kirafan2.spcost(3))
+e1:SetTarget(Kirafan6.spdamtg)
+e1:SetOperation(c10055112.op)
 alice:RegisterEffect(e1)
 
 local e2=Effect.CreateEffect(c)
